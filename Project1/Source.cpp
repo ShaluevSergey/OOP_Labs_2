@@ -8,7 +8,10 @@ private:
 	int first, second; // Целые числа
 
 public:
-	Pair() { first = second = 0 }; // Конструктор по умолчанию
+	Pair()
+	{
+		first = second = 0;
+	}; // Конструктор по умолчанию
 	Pair(int first, int second) // Конструктор с параметрами
 	{
 		this->first = first;
@@ -23,10 +26,11 @@ public:
 		second *= k;
 	}
 
-	virtual void Addition(int x, int y) // В условиях не прослеживается явный смысл функции addition (На вход также может идти экземпляр Pair (как с & , так и без *если надо*) )
+	virtual void Addition(int x, int y)
 	{
 		first += x;
 		second += y;
+		cout << first << endl << second;
 	}
 
 };
@@ -37,7 +41,10 @@ private:
 	int rubles, pennies;
 
 public:
-	Money() { rubles = pennies = 0 }; // Конструктор по умолчанию
+	Money()
+	{
+		rubles = pennies = 0;
+	}; // Конструктор по умолчанию
 	Money(int rubles, int pennies) // Конструктор с параметрами
 	{
 		this->rubles = rubles;
@@ -45,12 +52,13 @@ public:
 	};
 	~Money() {}; // Деконструктор
 
-	virtual void Addition(int x, int y) override // Переопределённый метод суммирования
+	virtual void Addition(int x, int y) override // Переопределённый метод суммирования с помощью виртуального метода
 	{
 		rubles += x;
 		pennies += y;
+		cout << rubles << endl << pennies;
 	}
-
+	 
 	void Subtraction(int x, int y) // Вычитание
 	{
 		rubles -= x;
@@ -64,5 +72,16 @@ public:
 };
 int main()
 {
+	Pair A;
+	Money B;
+	int a = 2;
+	int b = 4;
+
+
+
+
+	A.Addition(a, b);
+	A.Addition(1, 3);
+
 	return 0;
 }
